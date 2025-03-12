@@ -33,8 +33,8 @@ Follow these steps to use the SIP Calculator Web App:
 
 1. **Enter the Details in the Input Form**:
 
-   - **Monthly SIP Amount (₹)**: Enter the amount you plan to invest monthly in the SIP.
-   - **Lump Sum Amount (₹)**: If you are making any lump sum investment at the start, enter the amount here.
+   - **Monthly SIP Amount (रु)**: Enter the amount you plan to invest monthly in the SIP.
+   - **Lump Sum Amount (रु)**: If you are making any lump sum investment at the start, enter the amount here.
    - **Time Period (Years)**: Specify the duration for which you plan to invest (in years).
    - **Expected CAGR (%)**: Provide the expected Compound Annual Growth Rate (CAGR) in percentage. This is the expected rate of return on your investment annually.
    - **Annual Step-Up Percentage (%)**: If you plan to increase your SIP amount annually by a certain percentage, enter that percentage here.
