@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { Helmet } from 'react-helmet';
 import InputForm from "./components/InputForm";
 import ResultDisplay from "./components/ResultDisplay";
 import LineChart from "./components/LineChart";
 import PieChart from "./components/PieChart";
+import Footer from "./components/Footer"; // Import Footer component
 
 const SIPCalculator = () => {
     const [monthlySIP, setMonthlySIP] = useState(0);
@@ -83,41 +85,62 @@ const SIPCalculator = () => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto p-4 sm:p-8 font-sans">
-            <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">SIP Calculator with Charts</h1>
-            <InputForm
-                monthlySIP={monthlySIP}
-                setMonthlySIP={setMonthlySIP}
-                lumpSumAmount={lumpSumAmount}
-                setLumpSumAmount={setLumpSumAmount}
-                timePeriod={timePeriod}
-                setTimePeriod={setTimePeriod}
-                expectedCAGR={expectedCAGR}
-                setExpectedCAGR={setExpectedCAGR}
-                annualStepUp={annualStepUp}
-                setAnnualStepUp={setAnnualStepUp}
-                inflationRate={inflationRate}
-                setInflationRate={setInflationRate}
-                calculateSIP={calculateSIP}
-            />
-            {showResults && (
-                <>
-                    <ResultDisplay
-                        futureValue={futureValue}
-                        totalInvested={totalInvested}
-                        capitalGains={capitalGains}
-                    />
-                    <div className="flex flex-col sm:flex-row justify-between mt-10 gap-6 sm:gap-10">
-                        <div className="w-full sm:w-5/8">
-                            <LineChart chartData={chartData} />
+        <>
+            <Helmet>
+                {/* Meta Title */}
+                <title>SIP Calculator - Investment Growth Estimator</title>
+
+                {/* Meta Description */}
+                <meta name="description" content="Use our SIP Calculator to estimate your investment growth over time and plan your financial future." />
+
+                {/* Meta Keywords */}
+                <meta name="keywords" content="Sip in Nepal, how to calculate Sip in Nepal, SIP calculator, investment growth, financial planning, mutual funds, SIP investment" />
+
+                {/* Other Meta Tags */}
+                <meta name="author" content="Diwash Dhital" />
+                <meta property="og:title" content="SIP Calculator - Investment Growth Estimator" />
+                <meta property="og:description" content="Estimate your investment growth over time with our easy-to-use SIP calculator." />
+                <meta property="og:image" content="https://yourwebsite.com/preview-image.jpg" />
+                <meta property="og:url" content="https://yourwebsite.com/sip-calculator" />
+            </Helmet>
+            <div className="max-w-7xl mx-auto p-4 sm:p-8 font-sans">
+                <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">SIP Calculator Nepal</h1>
+                <h2 className="text-xl sm:text-xl font-medium text-center mb-6" >Estimate your investment growth over time and plan your financial future</h2>
+                <InputForm
+                    monthlySIP={monthlySIP}
+                    setMonthlySIP={setMonthlySIP}
+                    lumpSumAmount={lumpSumAmount}
+                    setLumpSumAmount={setLumpSumAmount}
+                    timePeriod={timePeriod}
+                    setTimePeriod={setTimePeriod}
+                    expectedCAGR={expectedCAGR}
+                    setExpectedCAGR={setExpectedCAGR}
+                    annualStepUp={annualStepUp}
+                    setAnnualStepUp={setAnnualStepUp}
+                    inflationRate={inflationRate}
+                    setInflationRate={setInflationRate}
+                    calculateSIP={calculateSIP}
+                />
+                {showResults && (
+                    <>
+                        <ResultDisplay
+                            futureValue={futureValue}
+                            totalInvested={totalInvested}
+                            capitalGains={capitalGains}
+                        />
+                        <div className="flex flex-col sm:flex-row justify-between mt-10 gap-6 sm:gap-10">
+                            <div className="w-full sm:w-5/8">
+                                <LineChart chartData={chartData} />
+                            </div>
+                            <div className="w-full sm:w-3/8">
+                                <PieChart pieData={pieData} />
+                            </div>
                         </div>
-                        <div className="w-full sm:w-3/8">
-                            <PieChart pieData={pieData} />
-                        </div>
-                    </div>
-                </>
-            )}
-        </div>
+                    </>
+                )}
+                <Footer /> {/* Footer Component */}
+            </div>
+        </>
     );
 };
 
